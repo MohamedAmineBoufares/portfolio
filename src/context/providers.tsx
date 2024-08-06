@@ -1,5 +1,9 @@
+import dynamic from "next/dynamic";
 import React from "react";
-import ActiveSectionContextProvider from "./active-section";
+
+const ActiveSectionContextProvider = dynamic(() => import("./active-section"), {
+  ssr: false, // This ensures the component is not SSR'd
+});
 
 function Providers({ children }: { children: React.ReactNode }) {
   return (
