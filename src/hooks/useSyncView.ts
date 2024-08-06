@@ -12,13 +12,13 @@ function useSyncView({ hash, intersectionOptions }: Args) {
     threshold: intersectionOptions?.threshold ?? 0.75,
     ...(intersectionOptions ?? {}),
   });
-  const { setActiveSection } = useActiveSectionContext();
+  const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
 
   useEffect(() => {
-    if (inView) {
+    if (inView && Date.now() - timeOfLastClick > 1000) {
       setActiveSection(hash);
     }
-  }, [inView, setActiveSection]);
+  }, [inView, setActiveSection, timeOfLastClick]);
 
   return { ref };
 }

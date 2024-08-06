@@ -1,3 +1,4 @@
+import Skills from "@/sections/skills";
 import About from "@/sections/about";
 import Intro from "@/sections/intro";
 import Projects from "@/sections/project/projects";
@@ -13,6 +14,8 @@ export default function Home() {
       <About />
 
       <Projects />
+
+      <Skills />
     </main>
   );
 }
