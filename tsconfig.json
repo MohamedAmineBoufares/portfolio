@@ -19,7 +19,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
+      "@/sections/*": ["./src/components/sections/*"],
+      "@/ui/*": ["./src/components/ui/*"],
       "@/lib/*": ["./lib/*"],
       "@/public/*": ["./public/*"]
     }

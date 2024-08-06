@@ -1,16 +1,28 @@
 "use client";
 
+import { useActiveSectionContext } from "@/context/active-section";
+import useSyncView from "@/hooks/useSyncView";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
+import { useInView } from "react-intersection-observer";
 
 function Intro() {
+  const { ref } = useSyncView({
+    hash: "#home",
+    intersectionOptions: { threshold: 0.5 },
+  });
+
   return (
-    <section className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
+    <section
+      ref={ref}
+      id="home"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+    >
       <div className="flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
